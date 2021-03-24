@@ -1,0 +1,17 @@
+<div class="mt-4">
+    <div class="row">
+        <div class="col-12 text-center">
+            <img class="animated fadeIn" src="../../../assets/img/Hogwarts-Logo-PNG.png" width="180" height="180" alt="">
+        </div>
+    </div>
+
+    
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <app-tables class="animated fadeIn" [charactersList]="charactersList"  *ngIf="!loading"></app-tables>
+            <mat-spinner *ngIf="loading" class="mx-auto"></mat-spinner>
+        </div>
+    </div>
+</div>
+

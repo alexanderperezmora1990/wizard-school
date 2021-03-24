@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+html { 
+    height:100%;
+}
+body { 
+    min-height:100%;
+    background-image: url('./assets/img/wallpaper.png');
+    background-position: center center;
+    background-size: 100%;
+    
+}
+
+:host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {   
+    stroke: #bada55;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

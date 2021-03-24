@@ -1,0 +1,49 @@
+<button type="button" class="btn btn-success" (click)="openModal(template)">Registrar Estudiante</button>
+
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Cargar Alumno</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form  [formGroup]="studentForm" (ngSubmit)="saveStudent()">
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="inputEmail4">Nombre</label>
+                <input type="email" class="form-control" formControlName="name" placeholder="Nombre">
+                <span *ngIf="studentForm.get('name').touched && studentForm.get('name').errors && studentForm.get('name').errors.required"
+                    class="text-danger animated fadeIn mt-2">El Nombre es obligatorio</span>
+                <br/>
+                <span *ngIf="studentForm.get('name').touched && studentForm.get('name').invalid"
+                    class="text-danger animated fadeIn">Solo letras</span>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputPassword4">Fecha de nacimiendo</label>
+                <dp-date-picker class="form-control date-input" formControlName="date"></dp-date-picker>  
+                <span *ngIf="studentForm.get('date').touched && studentForm.get('date').errors && studentForm.get('date').errors.required"
+                    class="text-danger animated fadeIn mt-2">El nacimiento es obligatorio</span>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputPassword4">Patronus</label>
+                <input class="form-control" formControlName="patronus" placeholder="Patronus">
+                <span *ngIf="studentForm.get('patronus').touched && studentForm.get('patronus').errors && studentForm.get('patronus').errors.required"
+                    class="text-danger animated fadeIn mt-2">El Nombre es obligatorio</span>
+                <br/>
+                <span *ngIf="studentForm.get('patronus').touched && studentForm.get('patronus').invalid"
+                    class="text-danger animated fadeIn mt-2">Solo letras</span>
+              </div>
+            </div>
+            <div class="form-row text-center mb-3">
+              <label class="mx-auto">Imagen estudiante (requerido)</label>
+            </div>
+            <div class="form-row text-center mb-3">
+                <img *ngIf="imageUrl.length === 0" onclick="document.getElementById('selectedFile').click();" class="img-thumbnail mx-auto cursor-pointer" width="150" height="150" src="../../../assets/img/avatar.jpg" alt="">
+                <img *ngIf="imageUrl.length > 0" onclick="document.getElementById('selectedFile').click();" class="img-thumbnail mx-auto cursor-pointer" width="150" height="150" [src]="imageUrl" alt="">
+                <input type="file" #Image accept="image/jpg" (change)="handleFileInput($event.target.files)" id="selectedFile" style="display: none;" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" [disabled]="!studentForm.valid">Registrar</button>
+          </form>
+    </div>
+</ng-template>

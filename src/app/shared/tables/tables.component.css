@@ -1,0 +1,28 @@
+table, mat-paginator {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+mat-paginator {
+   padding-top: 15px;
+   padding-bottom: 15px;
+}
+
+::ng-deep .mat-icon-button {
+    border-radius: 10% !important;
+    margin: 0px 5px !important;
+}
+
+::ng-deep td.mat-cell:last-of-type,  th.mat-header-cell:last-of-type {
+    text-align: center !important;
+}
+
+.mat-paginator {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

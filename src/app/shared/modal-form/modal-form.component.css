@@ -1,0 +1,17 @@
+
+.modal-header, .modal-body, .close  {
+    background-color: #343a40!important;
+    color: white;
+}
+
+::ng-deep .dp-picker-input {
+    border-color: transparent;
+}
+
+.date-input {
+    padding: 0.2rem 0.75rem;
+}
+
+.avatar {
+    border-radius: 100px;
+}
